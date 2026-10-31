@@ -2,7 +2,7 @@
 
 Pengembangan Katalog Produk Berbasis Website untuk Usaha Indo Jamur Crispy
 
-## Tools yang digunakan
+## Teknologi yang digunakan
 
 - Framework : Laravel 13.x (PHP 8.3)
 - Desain UI : Bootstrap 5.3
