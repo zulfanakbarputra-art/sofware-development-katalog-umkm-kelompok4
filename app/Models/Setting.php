@@ -20,6 +20,11 @@ class Setting extends Model
         return $message ? $url.'?text='.rawurlencode($message) : $url;
     }
 
+    public function greetingUrl(): string
+    {
+        return $this->whatsappUrl('Halo, saya ingin bertanya tentang produk '.config('app.name').'.');
+    }
+
     private function normalizedNumber(): string
     {
         $digits = preg_replace('/\D/', '', $this->whatsapp_number);

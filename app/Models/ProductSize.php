@@ -20,4 +20,9 @@ class ProductSize extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function formattedPrice(): string
+    {
+        return 'Rp '.number_format($this->price, 0, ',', '.');
+    }
 }
