@@ -11,11 +11,26 @@ class Product extends Model
 
     public function sizes(): HasMany
     {
-        return $this->hasMany(ProductSize::class);
+        return $this->hasMany(ProductSize::class)->orderBy('id');
     }
 
     public function isAvailable(): bool
     {
         return $this->status === 'tersedia';
+    }
+
+    public function canBeOrdered(): bool
+    {
+        return $this->isAvailable() && $this->sizes->isNotEmpty();
+    }
+
+    public function statusLabel(): string
+    {
+        return $this->isAvailable() ? 'Tersedia' : 'Habis';
+    }
+
+    public function defaultSize(): ?ProductSize
+    {
+        return $this->sizes->first();
     }
 }
