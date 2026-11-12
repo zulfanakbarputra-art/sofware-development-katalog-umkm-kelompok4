@@ -22,14 +22,14 @@ class OrderController extends Controller
 
         if (! $size || ! $product->canBeOrdered()) {
             return redirect(route('home').'#produk')
-                ->with('error', 'Pesanan tidak bisa diproses. Pastikan produk tersedia, lalu coba lagi.');
+                ->with('error', 'Pesanan belum bisa diproses, pastikan produk masih tersedia');
         }
 
-        $message = "Halo, saya ingin memesan:\n"
+        $message = "Halo kak, saya mau pesan:\n"
             ."Produk: {$product->name}\n"
             ."Ukuran: {$size->size}\n"
-            ."Jumlah: {$data['quantity']}\n\n"
-            .'Terima kasih.';
+            ."Jumlah: {$data['quantity']}\n"
+            .'Terima kasih!';
 
         return redirect()->away(Setting::current()->whatsappUrl($message));
     }

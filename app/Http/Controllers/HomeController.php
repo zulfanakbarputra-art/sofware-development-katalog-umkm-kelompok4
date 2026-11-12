@@ -6,7 +6,7 @@ use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Contracts\View\View;
 
-class CatalogController extends Controller
+class HomeController extends Controller
 {
     public function index(): View
     {
