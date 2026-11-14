@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('whatsapp_number');
             $table->string('address');
+            $table->text('map_embed_url');
             $table->string('opening_hours');
             $table->timestamps();
         });
