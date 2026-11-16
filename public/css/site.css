@@ -1,0 +1,197 @@
+/* VARIABEL */
+:root {
+    --navbar-height: 4rem;
+    --font-heading: "Bricolage Grotesque", system-ui, sans-serif;
+    --bs-body-font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --bs-body-font-size: 0.9375rem;
+    --bs-body-line-height: 1.65;
+
+    --bs-dark-rgb: 31, 59, 44;
+    --bs-warning-rgb: 241, 174, 61;
+    --bs-body-bg: #f5f4ef;
+    --bs-body-bg-rgb: 245, 244, 239;
+    --bs-secondary-bg: #e2e7df;
+    --bs-tertiary-bg: #eff2ee;
+    --bs-tertiary-bg-rgb: 239, 242, 238;
+    --bs-body-color: #1c2620;
+    --bs-body-color-rgb: 28, 38, 32;
+    --bs-secondary-color: rgba(28, 38, 32, 0.72);
+    --bs-border-color: #dde2d9;
+}
+
+/* DASAR */
+html {
+    scroll-padding-top: var(--navbar-height);
+}
+
+@media (min-width: 1400px) {
+    html {
+        font-size: 106.25%;
+    }
+}
+
+body {
+    padding-top: var(--navbar-height);
+}
+
+/* HURUF */
+h1,
+h2,
+h3,
+.navbar-brand,
+.font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+}
+
+@media (min-width: 992px) {
+    .hero-title {
+        font-size: 3.75rem;
+    }
+}
+
+.section-title {
+    font-size: 2rem;
+}
+
+@media (min-width: 992px) {
+    .section-title {
+        font-size: 2.6rem;
+    }
+}
+
+/* JARAK TIAP BAGIAN */
+.section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+@media (min-width: 992px) {
+    .section {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+}
+
+/* NAVBAR */
+.navbar {
+    --bs-navbar-padding-y: 0.65rem;
+    --bs-navbar-nav-link-padding-x: 0;
+    --bs-navbar-color: rgba(255, 255, 255, 0.8);
+    --bs-navbar-hover-color: #fff;
+}
+
+/* TOMBOL */
+.btn-warning {
+    --bs-btn-bg: rgb(var(--bs-warning-rgb));
+    --bs-btn-border-color: rgb(var(--bs-warning-rgb));
+    --bs-btn-hover-bg: #d99d37;
+    --bs-btn-hover-border-color: #d99d37;
+    --bs-btn-active-bg: #d99d37;
+    --bs-btn-active-border-color: #d99d37;
+}
+
+.btn-outline-light {
+    --bs-btn-border-color: rgba(255, 255, 255, 0.35);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: rgba(255, 255, 255, 0.12);
+    --bs-btn-hover-border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Tombol pilihan: dipakai untuk pilihan ukuran dan tombol "Produk habis" */
+.btn-option {
+    --bs-btn-padding-y: 0.35rem;
+    --bs-btn-bg: var(--bs-tertiary-bg);
+    --bs-btn-active-bg: rgb(var(--bs-dark-rgb));
+    --bs-btn-active-color: #fff;
+    --bs-btn-disabled-bg: var(--bs-tertiary-bg);
+    --bs-btn-disabled-border-color: transparent;
+    --bs-btn-disabled-opacity: 1;
+}
+
+.btn-option:hover {
+    --bs-btn-bg: var(--bs-secondary-bg);
+}
+
+/* Tombol jumlah: lingkaran berisi tanda - atau + */
+.quantity-button {
+    --bs-btn-border-color: var(--bs-border-color);
+    --bs-btn-hover-border-color: #000;
+    --bs-btn-disabled-border-color: var(--bs-border-color);
+    --bs-btn-disabled-opacity: 0.4;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+}
+
+/* Lebar tetap supaya tidak bergeser saat angka berubah */
+.quantity-input {
+    width: 2rem;
+}
+
+/* PRODUK HABIS */
+.sold-out {
+    opacity: 0.8;
+}
+
+.sold-out img {
+    filter: grayscale(1);
+}
+
+/* HERO */
+.hero {
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: calc(100svh - var(--navbar-height));
+}
+
+/* Foto hero di HP: mengisi sisa tinggi layar */
+.hero-photo {
+    position: relative;
+    min-height: 12rem;
+}
+
+.hero-overlay {
+    background: linear-gradient(0deg, rgb(var(--bs-dark-rgb)) 0%, rgba(var(--bs-dark-rgb), 0.8) 25%, rgba(var(--bs-dark-rgb), 0.2) 65%, transparent 100%);
+}
+
+/* Tablet: tinggi hero mengikuti isi, foto berbentuk 2:1 */
+@media (min-width: 576px) and (max-width: 1199.98px) {
+    .hero {
+        min-height: 0;
+    }
+
+    .hero-photo {
+        aspect-ratio: 2 / 1;
+    }
+
+    .container {
+        max-width: none;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+/* Laptop: foto di sisi kanan, memudar dari kiri */
+@media (min-width: 1200px) {
+    .hero {
+        min-height: calc(100vh - var(--navbar-height));
+        min-height: calc(100svh - var(--navbar-height));
+    }
+
+    .hero-photo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 35%;
+        aspect-ratio: auto;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(90deg, rgb(var(--bs-dark-rgb)) 0%, rgba(var(--bs-dark-rgb), 0.8) 25%, rgba(var(--bs-dark-rgb), 0.2) 65%, transparent 100%);
+    }
+}
